@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django</title>    
+    <link rel="stylesheet" type="text/css" href="{% static "static/css/foundation.css" %}">
+</head>
+<body>
+<div class="top-bar">
+    {% if username %}
+        <li><a href="/auth/logout/">Logout ({{ username }})</a></li>
+    {% else %}
+        <li><a href="/auth/login/">Login</a></li>
+    {% endif %}
+</div>  
+<h2><a href="/">Blog</a></h2>
+    {% block article %}{% endblock %}
+    {% block login %}{% endblock %}
+</body>
+</html>
